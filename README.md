@@ -1,4 +1,4 @@
- ```
+
 # Login Page
 
 This is a simple login page built with Django.
@@ -14,7 +14,7 @@ This is a simple login page built with Django.
 1. Clone the repository.
 
 ```
-git clone https://github.com/uzairkhan96/loginpage.git
+git clone https://github.com/Armin1723/djangologin.git
 ```
 
 2. Create a virtual environment and activate it.
@@ -63,4 +63,5 @@ Contributions are welcome! Please fork the repository and submit a pull request.
 ## License
 
 This project is licensed under the MIT license.
-```
+
+
