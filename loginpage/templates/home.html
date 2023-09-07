@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/utils.css' %}" type="text/css">
+    <title>Home page</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="loginContainer">
+            <form action="/login" method="POST">
+                {% csrf_token %}
+                <div id="logo"><p>KMC Shop</p></div>
+                {% if messages %}
+                    {% for message in messages %}
+                            <div class="banner {{message.tags}}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                <input type="email" name="email" id="email" placeholder="Enter your email." required>
+                <input type="password" name="password" id="password" placeholder="Enter your password." required>
+                <div id="captchaDiv">
+                    <button>Reload</button>
+                    <img src="https://picsum.photos/seed/picsum/200/300" alt="captcha">
+                </div>
+                <input type="text" name="captcha" id="captcha" placeholder="Enter Captcha." required>
+                <div id="keepMeLoggedIn">
+                    <input type="radio" name="keepMeLoggedIn" id="keepMeLoggedInCheckbox">
+                    <p>Keep me Logged In</p>
+                </div>
+                <p>New here? <a href="/register">Register Now.</a></p>
+                <div id="submit">
+                    <input type="submit" value="Submit" id="submitButton">
+                    <div id="submitButtonAfter"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="{%static 'js/utils.js'%}"></script>
+</body>
+</html>

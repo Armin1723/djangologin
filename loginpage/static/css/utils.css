@@ -1,0 +1,21 @@
+.banner{
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+}
+
+.error{
+    color: red;
+}
+
+.success{
+    color: green;
+}
+
+.info{
+    color: blue;
+}
+
+.warning{
+    color: orangered;
+}

@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: gilroy;
+}
+
+*::selection{
+    color:white;
+    background-color: black;
+}
+
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+#wrapper{
+    height: 100vh;
+    background-color: aliceblue;
+    display: grid;
+    place-items: center;
+}
+
+#loginContainer{
+    min-width: 30%;
+    min-height: max-content;
+    padding: 40px 0;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    /* border: 2px solid red; */
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+#loginContainer form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+#loginContainer form div{
+    text-align: center;
+    
+}
+
+#loginContainer #logo p{
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+#loginContainer form input{
+    height: 35px;
+    width: 60%;
+    padding-left: 15px;
+    border: 1px solid #7373bf;
+    border-radius: 10px;
+}
+
+#loginContainer form input:hover{
+    border: 2px solid #7373bf !important;
+}
+
+#captchaDiv{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+#captchaDiv button{
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+form img{
+    height: 60px;
+    width: 160px;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius:5px;
+}
+
+#keepMeLoggedIn{
+    display: flex;
+    justify-content: flex-start;
+    gap: 4px;
+    align-items: center;
+    width: 60%;
+    height: 25px;
+}
+
+#keepMeLoggedInCheckbox{
+    width: 10% !important;
+    padding: 0px !important;
+    height: 15px !important;
+}
+
+#submit{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    width: 60%;
+}
+
+#submitButton{
+    width: 100% !important;
+    position: relative;
+    cursor: pointer;
+    background: transparent;
+    z-index: 2;
+    background: linear-gradient(90deg,transparent 50%, #7373bf);
+    background-size: 250% 100%;
+    border: 2px solid #7373bf;
+    transition: background-position 0.5s ease-in;
+}
+
+#submitButton:hover{
+    background-position: 100% 0; /* change the direction of the change here */
+    border: 2px solid #7373bf
+}
+
+@media only screen and (max-width: 600px) {
+    #loginContainer{
+        width: 85%;
+        height: 70%;
+    }
+}
