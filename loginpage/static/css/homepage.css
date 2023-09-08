@@ -22,18 +22,31 @@ html,body{
     place-items: center;
 }
 
-#loginContainer{
+#formWrapper{
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     min-width: 30%;
     min-height: max-content;
     padding: 40px 0;
-    background-color: white;
+    transform-style: preserve-3d;
+    transition: all 0.6s ease-in;
+    box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+#loginContainer{
+    background: white;
+    position: relative;
+    width:100%;
     display: flex;
     align-items: center;
-    /* border: 2px solid red; */
-    border-radius: 10px;
-    overflow: hidden;
     display: flex;
-    box-shadow: 5px 8px 15px rgba(0, 0, 0, 0.3);
+    backface-visibility: hidden !important;
+    overflow: hidden;
+    z-index: 2;
 }
 
 #loginContainer form{
@@ -44,14 +57,14 @@ html,body{
     gap: 20px;
 }
 #loginContainer form div{
-    text-align: center;
-    
+    text-align: center;   
 }
 
-#loginContainer #logo p{
+#loginContainer #logo p, .heading{
     font-size: 2rem;
     font-weight: 900;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 #loginContainer form input{
@@ -62,7 +75,7 @@ html,body{
     border-radius: 10px;
 }
 
-#loginContainer form input:hover{
+#loginContainer form input:hover, #signupContainer form input:hover{
     border: 2px solid #7373bf !important;
 }
 
@@ -86,6 +99,7 @@ form img{
     border-radius:5px;
 }
 
+
 #keepMeLoggedIn{
     display: flex;
     justify-content: flex-start;
@@ -101,33 +115,71 @@ form img{
     height: 15px !important;
 }
 
-#submit{
-    position: relative;
-    overflow: hidden;
-    display: flex;
+.loginButton{
     width: 60%;
 }
 
-#submitButton{
-    width: 100% !important;
-    position: relative;
-    cursor: pointer;
-    background: transparent;
-    z-index: 2;
-    background: linear-gradient(90deg,transparent 50%, #7373bf);
-    background-size: 250% 100%;
-    border: 2px solid #7373bf;
-    transition: background-position 0.5s ease-in;
+#signupContainer{
+    background: #fff;
+    backface-visibility: hidden;
+    position: absolute;
+    z-index: -1;
+    width: 140%;
+    aspect-ratio: 1/1;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 12px 11px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-#submitButton:hover{
-    background-position: 100% 0; /* change the direction of the change here */
-    border: 2px solid #7373bf
+#signupForm{
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+#signupContainer form input{
+    height: 35px;
+    width: 48%;
+    padding-left: 15px;
+    border: 1px solid #7373bf;
+    border-radius: 10px;
+}
+
+.label{
+    place-items: start !important;
+}
+
+.detailsContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center ;
+    justify-content: space-between;
+    gap: 10px;  
+}
+
+#name inputs{
+    width: 30% !important;
+}
+
+.signupButton, .googleSignup{
+    width:48%;
 }
 
 @media only screen and (max-width: 600px) {
-    #loginContainer{
+    #formWrapper{
         width: 85%;
         height: 70%;
+    }
+
+    #signupContainer{
+        height: 80dvh;
+        width: 100%;
     }
 }

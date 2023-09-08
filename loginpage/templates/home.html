@@ -10,34 +10,84 @@
 </head>
 <body>
     <div id="wrapper">
-        <div id="loginContainer">
-            <form action="/login" method="POST">
-                {% csrf_token %}
-                <div id="logo"><p>KMC Shop</p></div>
-                {% if messages %}
-                    {% for message in messages %}
+        <div id="formWrapper" class=" ">
+            <div id="loginContainer">
+                <form action="/login" method="POST" id="loginForm">
+                    {% csrf_token %}
+                    <div id="logo"><p class="heading">KMC Shop</p></div>
+                    {% if messages %}
+                        {% for message in messages%}
                             <div class="banner {{message.tags}}">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-                <input type="email" name="email" id="email" placeholder="Enter your email." required>
-                <input type="password" name="password" id="password" placeholder="Enter your password." required>
-                <div id="captchaDiv">
-                    <button>Reload</button>
-                    <img src="https://picsum.photos/seed/picsum/200/300" alt="captcha">
-                </div>
-                <input type="text" name="captcha" id="captcha" placeholder="Enter Captcha." required>
-                <div id="keepMeLoggedIn">
-                    <input type="radio" name="keepMeLoggedIn" id="keepMeLoggedInCheckbox">
-                    <p>Keep me Logged In</p>
-                </div>
-                <p>New here? <a href="/register">Register Now.</a></p>
-                <div id="submit">
-                    <input type="submit" value="Submit" id="submitButton">
-                    <div id="submitButtonAfter"></div>
-                </div>
-            </form>
+                        {% endfor %}
+                    {% endif %}
+                    <input type="email" name="email" id="email" placeholder="Enter your email." required>
+                    <input type="password" name="password" id="password" placeholder="Enter your password." required>
+                    <div id="captchaDiv">
+                        <button>Reload</button>
+                        <img src="https://picsum.photos/seed/picsum/200/300" alt="captcha">
+                    </div>
+                    <input type="text" name="captcha" id="captcha" placeholder="Enter Captcha." required>
+                    <div id="keepMeLoggedIn">
+                        <input type="checkbox" name="keepMeLoggedIn" id="keepMeLoggedInCheckbox">
+                        <p>Keep me Logged In</p>
+                    </div>
+                    <p>New here? <a href="/" id="signupToggle" class="loginSignupToggle">Register Now.</a></p>
+                    <button type="submit" value="Submit" class="loginButton"><span class='button_top'>Login</span></button>
+                </form>
+            </div>
+            <div id="signupContainer">
+                <form action="/signup" method="POST" id="signupForm">
+                    {% csrf_token%}
+                    <p class="heading">Welcome to KMC Shop</p>
+                    {% if messages %}
+                        {% for message in messages%}
+                            <div class="banner {{message.tags}}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                    <div id="labelForName" class="label">Name</div>
+                    <div id="nameField" class="detailsContainer">
+                        <input type="text" name="fname" id="fname" required placeholder="Enter your first name*" style="text-transform: capitalize;">
+                        <input type="text" name="mname" id="mname"  placeholder="Enter your middle name">
+                        <input type="text" name="lname" id="lname" required placeholder="Enter your last name*" >
+                    </div>
+                    <div id="labelForEmail">Email Address</div>
+                    <div id="emailField" class="detailsContainer">
+                        <input type="email" name="signupEmail" id="signupEmail" placeholder="Enter your Email Address.*" required>
+                        <input type="password" name="signupEmailMatch" id="signupEmailMatch" placeholder="Confirm your Email Address.*" required>
+                    </div>
+                    <div id="labelForPassword">Choose a password.</div>
+                    <div id="passwordField" class="detailsContainer">
+                        <input type="password" name="signupPass" id="signupPass" placeholder="Choose a unique password.*" required>
+                        <input type="password" name="signupPassMatch" id="signupPassMatch" placeholder="Re-enter your password.*" required>
+                    </div>
+                    <div id="labelForAddress">Address</div>
+                    <div id="addressField1st" class="detailsContainer">
+                        <input type="text" name="houseNo" id="houseNo" placeholder="Enter your House No.*" required>
+                        <input type="text" name="lane" id="lane" placeholder="Street name*" required>
+                    </div>
+                    <div id="addressField2nd" class="detailsContainer">
+                        <input type="text" name="locality" id="locality" placeholder="locality*" required>
+                        <input type="text" name="landmark" id="landmark" placeholder="Landmark*" required>
+                        <input type="number" name="zipCode" id="zipCode" placeholder="Zip Code*" required>
+                    </div>
+                    <div id="addressField3rd" class="detailsContainer d-none">
+                        <input type="text" name="city" id="city" placeholder="City*" required readonly>
+                        <input type="text" name="state" id="state" placeholder="State*" required readonly>
+                        <input type="text" name="country" id="country" placeholder="country*" required readonly>
+                    </div>  
+                    <div>
+                        <span>Already a User?</span>
+                        <a href="/" id="loginToggle">Login</a>
+                    </div>
+                    <div id="buttons" class="detailsContainer">
+                        <button type="submit" class="signupButton"><span class="button_top">Create a new account</span></button>
+                        <button href="/google" class="googleSignup"><span class="button_top">Authenticate using Google</span></button>  
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    <script src="{%static 'js/utils.js'%}"></script>
+    <audio src="{% static 'js/mouseClick.wav' %}"></audio>
+    <script src="{%static 'js/homepage.js'%}"></script>
 </body>
 </html>

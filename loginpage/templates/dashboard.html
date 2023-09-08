@@ -14,7 +14,8 @@
         {% endfor %}
     {% endif %}
     Dashboard.
-    <a href='../logout/'>Logout</a>
+    <p>Hello {{request.user.first_name}}</p>
+    <a href='../logout/'>Logout</a> 
     <script src="{%static 'js/utils.js'%}"></script>
 </body>
 </html>
